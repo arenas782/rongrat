@@ -1,4 +1,4 @@
-      <div class="content">
+<div class="content">
         <div class="row">          
           <div class="col-md-12">
             <div class="card ">
@@ -33,7 +33,7 @@
                       </th>
                     </thead>
                     <tbody>
-                      <?php foreach ($ultimas_operaciones as $p):?>
+                      <?php foreach ($operaciones as $p):?>
                       <tr>
                         <td>
                           <?=$this->producto->getProducto($p->id_producto)->nombre;?>
@@ -53,13 +53,13 @@
                           ?>
                         </td>
                         <td>                          
-                          <?=number_format($p->cantidad,2,',','.')?>
+                          <?=$p->cantidad?>
                         </td>
                         <td>                          
-                          <?=number_format($p->monto,2,',','.')?>
+                          <?=$p->monto?>
                         </td>
                         <td>
-                          <?=number_format($p->total,2,',','.')?>
+                          <?=$p->total;?>
                         </td>
                         <td>
                           <?=date('d-m-Y H:i:s',strtotime($p->fecha));?>

@@ -1,26 +1,26 @@
-      <div class="content">
+    <div class="content">
         <div class="row">          
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
-                <h4 class="card-title">Sistema de control - Insumos e Inventario</h4>
-                <p class="card-category">Últimas operaciones</p>
+                <h4 class="card-title">Registro de las operaciones de productos</h4>
+                
               </div>
               <div class="card-body ">
                   <div class="table-responsive">
-                  <table class="table">
+                  <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead class="">
                       <th>
                         Producto
                       </th>
                       <th>
-                        Nº Documento
+                        Nº Doc
                       </th>
                       <th>
                         Tipo
                       </th>
                       <th>
-                        Cantidad
+                        Cant
                       </th>
                       <th>
                         Monto
@@ -31,9 +31,15 @@
                       <th>
                         Fecha
                       </th>
+                      <th>
+                        Stock
+                      </th>
+                      <th>
+                        Valor
+                      </th>
                     </thead>
                     <tbody>
-                      <?php foreach ($ultimas_operaciones as $p):?>
+                      <?php foreach ($operaciones as $p):?>
                       <tr>
                         <td>
                           <?=$this->producto->getProducto($p->id_producto)->nombre;?>
@@ -53,16 +59,22 @@
                           ?>
                         </td>
                         <td>                          
-                          <?=number_format($p->cantidad,2,',','.')?>
+                            <?=number_format($p->cantidad,2,',','.')?>
                         </td>
                         <td>                          
-                          <?=number_format($p->monto,2,',','.')?>
+                            <?=number_format($p->monto,2,',','.')?>
                         </td>
                         <td>
-                          <?=number_format($p->total,2,',','.')?>
+                            <?=number_format($p->total,2,',','.')?>
                         </td>
                         <td>
                           <?=date('d-m-Y H:i:s',strtotime($p->fecha));?>
+                        </td>
+                        <td>
+                            <?=number_format($p->stock,2,',','.')?>
+                        </td>
+                        <td>
+                            <?=number_format($p->valor,2,',','.')?>
                         </td>
                       </tr>                      
                       <?php endforeach;?>

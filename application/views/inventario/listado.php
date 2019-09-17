@@ -15,6 +15,7 @@
                                 <th>Nombre</th>
                                 <th>Costo/Precio</th>
                                 <th>Stock</th>                                
+                                <th>Valor</th> 
                               <!--  <th>Acciones</th>-->
                             </tr>
                         </thead>
@@ -24,6 +25,7 @@
                                 <th>Nombre</th>
                                 <th>Costo/Precio</th>
                                 <th>Stock</th>
+                                <th>Valor</th>
                                 <!--<th>Acciones</th>-->
                             </tr>
                         </tfoot>
@@ -34,8 +36,9 @@
                                         <tr>    
                                             <td><?=$p->codigo?></td>
                                             <td><?=$p->nombre?></td>
-                                            <td><?=$p->costo?>/<?=$p->precio?></td>
-                                            <td><?=$p->stock?></td>                                
+                                            <td><?=number_format($p->costo,2,',','.')?> / <?=number_format($p->precio,2,',','.')?></td>
+                                            <td><?=number_format($p->stock,2,',','.')?></td>
+                                            <td><?=number_format($p->valor,2,',','.')?></td>
                               <!--              <td><a href="#">Ver detalles</a></td>-->
                                         </tr>                        
                                     <?php 

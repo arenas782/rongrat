@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Rongrat - Inventario
+    <?=$titulo?>
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
@@ -78,13 +78,13 @@
           </div>
         </div>
         <ul class="nav">
-          <li>
+          <li <?php if($pagina=="inicio") echo 'class="active"';?>>
             <a href="<?=base_url();?>">
             <i class="material-icons">home</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li <?php if(($pagina=="inventario") || ($pagina=="operacion_producto") || ($pagina=="nuevo_producto") || ($pagina=="operaciones_productos")) echo 'class="active"';?>>
             <a data-toggle="collapse" href="#pagesExamples">
             <i class="material-icons">storefront</i>
               <p>
@@ -92,30 +92,36 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="pagesExamples">
+            <div class="collapse <?php if(($pagina=="inventario") || ($pagina=="nuevo_producto") || ($pagina=="operacion_producto") || ($pagina=="operaciones_productos"))  echo "show";?> " id="pagesExamples">
               <ul class="nav">
-                <li>
+                <li <?php if($pagina=="inventario") echo 'class="active"';?>>
                   <a href="<?=base_url('inventario');?>">
                   <i class="material-icons">list_alt</i>
-                    <span class="sidebar-normal"> Listado </span>
+                    <span class="sidebar-normal"> Listado productos</span>
                   </a>
                 </li>
-                <li>
+                <li <?php if($pagina=="nuevo_producto") echo 'class="active"';?>>
                   <a href="<?=base_url('inventario/nuevo');?>">
                   <i class="material-icons">add_box</i>
-                    <span class="sidebar-normal"> Registrar nuevo </span>
+                    <span class="sidebar-normal"> Registrar producto </span>
                   </a>
                 </li>
-                <li>
+                <li <?php if($pagina=="operacion_producto") echo 'class="active"';?>>
                   <a href="<?=base_url('inventario/operacion');?>">
                   <i class="material-icons">compare_arrows</i>
                     <span class="sidebar-normal"> Entrada/Salida </span>
                   </a>
                 </li>                
+                <li <?php if($pagina=="operaciones_productos") echo 'class="active"';?>>
+                  <a href="<?=base_url('inventario/listado');?>">
+                  <i class="material-icons">compare_arrows</i>
+                    <span class="sidebar-normal"> Listado de operaciones </span>
+                  </a>
+                </li> 
               </ul>
             </div>
           </li>
-          <li>
+          <!--li>
             <a data-toggle="collapse" href="#componentsExamples">
             <i class="material-icons">view_list</i>
               <p>
@@ -133,8 +139,8 @@
                 </li>                
               </ul>
             </div>
-          </li>
-          <li>
+          </li>-->
+          <li <?php if($pagina=="reportes") echo 'class="active"';?>>
             <a data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">bar_chart</i>
               <p>
@@ -142,14 +148,14 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="formsExamples">
+            <div class="collapse <?php if($pagina=="reportes") echo 'show';?> " id="formsExamples">
               <ul class="nav">
-                <li>
-                  <a href="forms/regular.html">
-                    <span class="sidebar-mini-icon">RF</span>
-                    <span class="sidebar-normal"> Regular Forms </span>
+              <li <?php if($pagina=="reportes") echo 'class="active"';?>>
+                  <a href="<?=base_url('reportes/productos');?>">
+                  <i class="material-icons">compare_arrows</i>
+                    <span class="sidebar-normal"> Reporte producción </span>
                   </a>
-                </li>                
+                </li> 
               </ul>
             </div>
           </li>

@@ -9,22 +9,29 @@ class Inventario extends CI_Controller {
         $this->load->model('producto');    
         $productos=$this->producto->getProductos();
         $data['productos']=$productos;
-		$this->load->view('header');
+        $data2['titulo']="Listado de productos";
+        $data2['pagina']="inventario";
+		$this->load->view('header',$data2);
 		$this->load->view('inventario/listado',$data);
 		$this->load->view('footer');
     }
     public function nuevo()
 	{
-		$this->load->view('header');
+        $data2['titulo']="Registro de productos";
+        $data2['pagina']="nuevo_producto";
+		$this->load->view('header',$data2);		
 		$this->load->view('inventario/nuevo');
 		$this->load->view('footer');
     }
     public function operacion()
 	{
-        $this->load->model('producto');    
+        $this->load->model('producto');
+        
         $productos=$this->producto->getProductos();
         $data['productos']=$productos;
-		$this->load->view('header');
+        $data2['titulo']="Operaciones de productos";
+        $data2['pagina']="operacion_producto";    
+		$this->load->view('header',$data2);
 		$this->load->view('inventario/operacion',$data);
 		$this->load->view('footer');
     }
@@ -36,7 +43,9 @@ class Inventario extends CI_Controller {
         $costo=$this->input->post('costo');
         $precio=$this->input->post('precio');
         $stock=$this->input->post('stock');
-        $producto=array('codigo'=>$codigo,'nombre'=>$nombre,'costo'=>$costo,'precio'=>$precio,'stock'=>$stock);
+        $valor=$this->input->post('valor');
+        $producto=array('codigo'=>$codigo,'nombre'=>$nombre,'costo'=>$costo,
+        'precio'=>$precio,'stock'=>$stock,'valor'=>$valor);
      
         if($this->producto->addProducto($producto)){
             $this->session->set_flashdata('status','Producto agregado exitosamente');
@@ -54,10 +63,19 @@ class Inventario extends CI_Controller {
         $nro_documento=$this->input->post('nro_documento');        
         $fecha=date('Y-m-d H:i:s',strtotime($fecha));
         $stock_restante=$this->input->post('stock_restante');
+        $nuevo_valor=$this->input->post('valor');
+        switch ($tipo_operacion){
+            case 'e':
+                $nuevo_valor+=$total;
+                break;
+            case 's';
+                $nuevo_valor-=$total;
+                break;
+        }
         $operacion=array('id_producto'=>$id_producto,'tipo_operacion'=>$tipo_operacion,'cantidad'=>$cantidad,
-        'monto'=>$monto,'total'=>$total,'fecha'=>$fecha,'stock'=>$stock_restante,'nro_documento'=>$nro_documento);
+        'monto'=>$monto,'total'=>$total,'fecha'=>$fecha,'stock'=>$stock_restante,'nro_documento'=>$nro_documento,'valor'=>$nuevo_valor);
         if($this->producto->addOperacion($operacion)){
-            $data=array('stock'=>$stock_restante);
+            $data=array('stock'=>$stock_restante,'valor'=>$nuevo_valor);
             if($this->producto->updateProducto($data,$id_producto)){
                 $this->session->set_flashdata('status','Operación agregada exitosamente');
 				redirect('inventario/', 'refresh');
@@ -71,5 +89,20 @@ class Inventario extends CI_Controller {
         $this->load->model('producto');
         $producto=$this->producto->getProducto($id);
         echo json_encode($producto);
+    }
+
+
+
+    public function listado()
+	{
+        $this->load->model('producto');
+        $this->load->model('operacion_producto');
+        $productos=$this->producto->getProductos();
+        $data['operaciones']=$this->operacion_producto->getOperaciones();
+        $data2['titulo']="Operaciones de productos";
+        $data2['pagina']="operaciones_productos";
+		$this->load->view('header',$data2);
+		$this->load->view('inventario/listado_operaciones',$data);
+		$this->load->view('footer');
     }
 }

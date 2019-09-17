@@ -27,19 +27,30 @@
 
   <script src="<?=base_url('assets/js/paper-dashboard.min790f.js?v=2.0.1');?>" type="text/javascript"></script>    
   <script src="<?=base_url('assets/demo/demo.js');?>" type="text/javascript"></script>    
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
     <script>
 
         $(document).ready(function() {  
 
 
-          $("form").submit(function(e){
-            console.log($('#monto').val());
-            console.log($('#total').val());
-            //    e.preventDefault(e);
-            });
+          $('#desdeinput').datetimepicker();
+        $('#hastainput').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#desdeinput").on("dp.change", function (e) {
+          console.log(e.date);
+            $('#hastainput').data("DateTimePicker").minDate(e.date);
+        });
+        $("#hastainput").on("dp.change", function (e) {
+            $('#desdeinput').data("DateTimePicker").maxDate(e.date);
+        });
           
           $('.datetimepicker').datetimepicker({
-            format: 'DD-MM-YYYY HH:mm:ss',            
+            format: 'DD-MM-YYYY HH:mm:ss',  
+            
         icons: {
           time: "fa fa-clock-o",
           date: "fa fa-calendar",
@@ -131,6 +142,7 @@
             if(tipo_op!=""){
               var id=$('#producto').val();
               var monto=$('#monto');
+              var valor=$('#valor');
               var url="<?=base_url('inventario/info_producto/');?>"+id;
               $.ajax({                   
                     type:"GET",
@@ -140,10 +152,12 @@
                         $('#stock_actual').val(myObj.stock);
                         switch (tipo_op){
                             case 'e':
-                              monto.val(myObj.costo);                            
+                              monto.val(myObj.costo); 
+                              valor.val(myObj.valor);                           
                               break;
                             case 's':
                               monto.val(myObj.precio);
+                              valor.val(myObj.valor);                           
                               break;
                         }
                         

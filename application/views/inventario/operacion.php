@@ -35,7 +35,7 @@
                                         <div class="col-md-4 col-sm-12 col-xs-12">
                                             <label>Nro documento</label>
                                             <div class="form-group">
-                                                <input type="text" name="nro_documento" id="nro_documento" class="form-control"  >
+                                                <input type="text" name="nro_documento" id="nro_documento" class="form-control" >
                                             </div>
                                         </div>
                                     </div>    
@@ -79,7 +79,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="a" value="5" id="a">
+                                    <input type="hidden" name="valor" id="valor">
                                     <button type="submit" class="btn btn-info btn-round">Enviar</button>
                                 </form>
                             </div>                                                                                                                                

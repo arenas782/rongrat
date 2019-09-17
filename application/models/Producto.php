@@ -4,8 +4,7 @@
     
         public function getProducto($id){
             $query = $this->db->get_where('inv_productos', array('id'=>$id));
-            if($query->num_rows()>0){
-                
+            if($query->num_rows()>0){                
                 return $query->row();        
         }
         return null;        
