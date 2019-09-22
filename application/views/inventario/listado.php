@@ -1,7 +1,15 @@
     <div class="content">
         <div class="row">
           <div class="col-md-12">
-            <div class="card ">
+            <?php if($this->session->flashdata('msg')):?>
+              <div class="alert alert-<?=$this->session->flashdata('type')?> alert-dismissible fade show" role="alert">
+                <strong>Aviso</strong> <?=$this->session->flashdata('msg');?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <?php endif;?>
+            <div class="card">
               <div class="card-header ">
                 <h4 class="card-title">Listado de productos</h4>
                 <p class="card-category">Todos los productos disponibles en almacén</p>

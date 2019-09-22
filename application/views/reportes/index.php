@@ -183,6 +183,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <a href="<?=base_url('reportes/pdf_productos_individual/?desde='.$desde.'&hasta='.$hasta.'&id_producto='.$id_producto);?>" class="btn btn-primary" download>Imprimir</a>
                                     </div>
                                 </div>                                
                                 <?php

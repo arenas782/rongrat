@@ -52,3 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'welcome/login';
+$route['check_login'] = 'welcome/check_login';
+$route['logout'] = 'welcome/logout';
+
+$route['perfil'] = 'welcome/perfil';
+$route['perfil/actualizar'] = 'welcome/actualizar_perfil';
+$route['reportes/productos/general'] = 'reportes/productos_general';
+$route['reportes/productos/individual'] = 'reportes/productos_individual';
+$route['reportes/productos/stock'] = 'reportes/stock_productos';

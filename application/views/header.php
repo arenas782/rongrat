@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo.png">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <link rel="icon" href="<?=base_url('assets/img/logo.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     <?=$titulo?>
@@ -36,11 +37,11 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com/" class="simple-text logo-mini">
+        <a href="<?=base_url();?>" class="simple-text logo-mini">
           
         </a>
-        <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
-          Rongrat      
+        <a href="<?=base_url();?>" class="simple-text logo-normal">
+          <img src="<?=base_url('assets/img/logo.png');?>" width="110">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -48,29 +49,23 @@
           <div class="info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
               <span>
-                Administrador
+                <?=$this->session->userdata('nombre');?>
                 <b class="caret"></b>
               </span>
             </a>
             <div class="clearfix"></div>
-            <div class="collapse" id="collapseExample">
-              <ul class="nav">
-                <li>
-                  <a href="#">
-                  <i class="material-icons">face</i>
-                    <span class="sidebar-normal">My Profile</span>
+            <div class="collapse <?php if($pagina=="perfil") echo 'show';?>" id="collapseExample">
+              <ul class="nav">                
+                <li class="<?php if($pagina=="perfil") echo 'active';?>">
+                  <a href="<?=base_url('perfil');?>">
+                    <i class="material-icons">account_circle</i>
+                    <span class="sidebar-normal">Perfil</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <span class="sidebar-mini-icon">EP</span>
-                    <span class="sidebar-normal">Edit Profile</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span class="sidebar-mini-icon">S</span>
-                    <span class="sidebar-normal">Settings</span>
+                  <a href="<?=base_url('logout');?>">
+                    <i class="material-icons">power_settings_new</i>
+                    <span class="sidebar-normal">Cerrar sesión</span>
                   </a>
                 </li>
               </ul>
@@ -81,7 +76,7 @@
           <li <?php if($pagina=="inicio") echo 'class="active"';?>>
             <a href="<?=base_url();?>">
             <i class="material-icons">home</i>
-              <p>Dashboard</p>
+              <p>Inicio</p>
             </a>
           </li>
           <li <?php if(($pagina=="inventario") || ($pagina=="operacion_producto") || ($pagina=="nuevo_producto") || ($pagina=="operaciones_productos")) echo 'class="active"';?>>
@@ -121,26 +116,8 @@
               </ul>
             </div>
           </li>
-          <!--li>
-            <a data-toggle="collapse" href="#componentsExamples">
-            <i class="material-icons">view_list</i>
-              <p>
-                Insumos
-                <b class="caret"></b>
-              </p>
-            </a>
-            <div class="collapse " id="componentsExamples">
-              <ul class="nav">
-                <li>
-                  <a href="components/buttons.html">
-                    <span class="sidebar-mini-icon">B</span>
-                    <span class="sidebar-normal"> Buttons </span>
-                  </a>
-                </li>                
-              </ul>
-            </div>
-          </li>-->
-          <li <?php if($pagina=="reportes") echo 'class="active"';?>>
+          
+          <li <?php if(($pagina=="reporte_individual") || ($pagina=="reporte_general")) echo 'class="active"';?>>
             <a data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">bar_chart</i>
               <p>
@@ -148,12 +125,24 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse <?php if($pagina=="reportes") echo 'show';?> " id="formsExamples">
+            <div class="collapse <?php if(($pagina=="reporte_individual")||($pagina=="reporte_general")) echo 'show';?> " id="formsExamples">
               <ul class="nav">
-              <li <?php if($pagina=="reportes") echo 'class="active"';?>>
-                  <a href="<?=base_url('reportes/productos');?>">
-                  <i class="material-icons">compare_arrows</i>
-                    <span class="sidebar-normal"> Reporte producción </span>
+                <li <?php if($pagina=="reporte_individual") echo 'class="active"';?>>
+                  <a href="<?=base_url('reportes/productos/individual');?>">
+                  <i class="material-icons">list_alt</i>
+                    <span class="sidebar-normal"> Reporte individual </span>
+                  </a>
+                </li> 
+                <li <?php if($pagina=="reporte_general") echo 'class="active"';?>>
+                  <a href="<?=base_url('reportes/productos/general');?>">
+                  <i class="material-icons">view_list</i>
+                    <span class="sidebar-normal"> Reporte general </span>
+                  </a>
+                </li> 
+                <li>
+                  <a href="<?=base_url('reportes/productos/stock');?>" download>
+                  <i class="material-icons">list</i>
+                    <span class="sidebar-normal"> Stock de productos</span>
                   </a>
                 </li> 
               </ul>
@@ -181,7 +170,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Inversiones Rongrat</a>
-          </div>          
+            <a class="navbar-brand" href="#pablo">Inversiones Rongrat</a>            
+          </div>            
         </div>
       </nav>
