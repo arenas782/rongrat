@@ -170,4 +170,56 @@ class Inventario extends CI_Controller {
 			redirect('login/');
 		}			        
     }
+    public function editar_producto($id)
+	{
+        if($this->session->userdata('usuario_logged_in')){
+            $this->load->model('producto');
+            $id_producto=$id;
+            $producto=$this->producto->getProducto($id_producto);
+            $data2['titulo']="Listado de productos";
+            $data2['pagina']="inventario";
+            $data['producto']=$producto;
+            $this->load->view('header',$data2);
+            $this->load->view('inventario/editar',$data);
+            $this->load->view('footer');
+            
+        }
+        else{
+			$this->session->set_flashdata('type','danger');
+			$this->session->set_flashdata('msg','Inicia sesión para continuar');
+			redirect('login/');
+		}			                
+    }
+    public function update_producto()
+	{
+        if($this->session->userdata('usuario_logged_in')){
+            $this->load->model('producto');
+            $id=$this->input->post('id');
+            $codigo=$this->input->post('codigo');
+            $nombre=$this->input->post('nombre');
+            $costo=$this->input->post('costo');
+            $precio=$this->input->post('precio');
+            $stock=$this->input->post('stock');
+            $valor=$this->input->post('valor');
+            $producto=array('codigo'=>$codigo,'nombre'=>$nombre,'costo'=>$costo,
+            'precio'=>$precio,'stock'=>$stock,'valor'=>$valor);
+         
+            if($this->producto->updateProducto($producto,$id)){
+                $this->session->set_flashdata('type','success');
+                $this->session->set_flashdata('msg','Producto editado exitosamente');
+                    redirect('inventario/', 'refresh');
+            }
+            else{
+                $this->session->set_flashdata('type','danger');
+                $this->session->set_flashdata('msg','Ha ocurrido un error');
+                redirect('inventario/', 'refresh');
+            }
+        }
+        else{
+			$this->session->set_flashdata('type','danger');
+			$this->session->set_flashdata('msg','Inicia sesión para continuar');
+			redirect('login/');
+		}			
+        
+    }
 }

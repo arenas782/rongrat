@@ -57,6 +57,8 @@ $route['login'] = 'welcome/login';
 $route['check_login'] = 'welcome/check_login';
 $route['logout'] = 'welcome/logout';
 
+$route['inventario/editar_producto/(:any)'] = 'inventario/editar_producto/$1';
+
 $route['perfil'] = 'welcome/perfil';
 $route['perfil/actualizar'] = 'welcome/actualizar_perfil';
 $route['reportes/productos/general'] = 'reportes/productos_general';

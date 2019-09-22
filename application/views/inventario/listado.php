@@ -24,7 +24,7 @@
                                 <th>Costo/Precio</th>
                                 <th>Stock</th>                                
                                 <th>Valor</th> 
-                              <!--  <th>Acciones</th>-->
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -34,7 +34,7 @@
                                 <th>Costo/Precio</th>
                                 <th>Stock</th>
                                 <th>Valor</th>
-                                <!--<th>Acciones</th>-->
+                                <th>Acciones</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -47,7 +47,7 @@
                                             <td><?=number_format($p->costo,2,',','.')?> / <?=number_format($p->precio,2,',','.')?></td>
                                             <td><?=number_format($p->stock,2,',','.')?></td>
                                             <td><?=number_format($p->valor,2,',','.')?></td>
-                              <!--              <td><a href="#">Ver detalles</a></td>-->
+                                            <td><a href="<?=base_url('inventario/editar_producto/').$p->id?>" class="btn btn-primary">Detalles</a></td>
                                         </tr>                        
                                     <?php 
                                     endforeach;
