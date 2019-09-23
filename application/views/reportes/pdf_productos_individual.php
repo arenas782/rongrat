@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Inversiones Rongrat</title>
+<title>Alimentos Rongrat</title>
 <style>
     tr:nth-child(even) {
         background-color: #f2f2f2
@@ -29,8 +29,8 @@
     <tr>
     <td valign="top"><img src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/assets/img/logo.png';?>" width="110" style="margin-top:20px"/></td>
         <td align="right">
-            <h3>Inversiones Rongrat C.A.</h3>
-            <p> RIF: J-1111111-1<br>Teléfono: xxxx-xxxxxxx<br>Zaraza, estado Guárico         
+            <h3>Alimentos Rongrat C.A.</h3>
+            <p> RIF: J-40892210-0<br>Teléfono: xxxx-xxxxxxx<br>Zaraza, estado Guárico         
         </td>
         
     </tr>
@@ -56,8 +56,8 @@
         <th>Monto</th>
         <th>Total</th>
         <th>Fecha</th>
-        <th>Stock</th>
-        <th>Valor</th>
+        <!--<th>Stock</th>
+        <th>Valor</th>-->
       </tr>
     </thead>
     <tbody>
@@ -80,15 +80,15 @@
                 <td><?=number_format($p->monto,2,',','.')?></td>
                 <td><?=number_format($p->total,2,',','.')?></td>
                 <td class="fechas"><?=date('d/m/Y H:i:s',strtotime($p->fecha));?></td>
-                <td><?=number_format($p->stock,2,',','.')?></td>
-                <td><?=number_format($p->valor,2,',','.')?></td>
+               <!-- <td><?=number_format($p->stock,2,',','.')?></td>
+                <td><?=number_format($p->valor,2,',','.')?></td>-->
             </tr>
         <?php endforeach;?>              
     </tbody>    
   </table>
 
   <hr><br><br>
-  <h3 style="text-align:center">Resumen de operaciones</h3><hr>
+  <h3 style="text-align:center">Resumen totalizado de operaciones</h3><hr>
   <table width="100%" class="table table-striped">
     <thead style="background-color: lightgray;">
       <tr>        

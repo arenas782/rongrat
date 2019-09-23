@@ -3,12 +3,12 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header ">
-                <h4 class="card-title">Sistema de control - Insumos e Inventario</h4>
-                <p class="card-category">Últimas operaciones</p>
+                <h4 class="card-title">Resumen - Operaciones recientes</h4>
+                <p class="card-category">Últimas 10 operaciones</p>
               </div>
               <div class="card-body ">
                   <div class="table-responsive">
-                  <table class="table">
+                  <table class="table table-striped">
                     <thead class="">
                       <th>
                         Producto

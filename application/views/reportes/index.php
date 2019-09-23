@@ -64,7 +64,7 @@
                                                 Producto
                                             </th>
                                             <th>
-                                                Nº Documento
+                                                Nº Doc
                                             </th>
                                             <th>
                                                 Tipo
@@ -81,12 +81,12 @@
                                             <th>
                                                 Fecha
                                             </th>
-                                            <th>
+                                          <!--  <th>
                                                 Stock
                                             </th>
                                             <th>
                                                 Valor
-                                            </th>
+                                            </th>-->
                                         </thead>
                                         <tbody>
                                             <?php foreach ($operaciones as $p):?>
@@ -120,12 +120,12 @@
                                                 <td>
                                                     <?=date('d-m-Y H:i:s',strtotime($p->fecha));?>
                                                 </td>
-                                                <td>
+                                              <!--  <td>
                                                     <?=number_format($p->stock,2,',','.')?>
                                                 </td>
                                                 <td>
                                                     <?=number_format($p->valor,2,',','.')?>
-                                                </td>
+                                                </td>-->
                                                 
                                             </tr>                      
                                             <?php endforeach;?>

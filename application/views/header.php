@@ -170,7 +170,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Inversiones Rongrat</a>            
+            <a class="navbar-brand" href="#pablo">Alimentos Rongrat</a>            
           </div>            
         </div>
       </nav>

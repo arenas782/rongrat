@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Inversiones Rongrat</title>
+<title>Alimentos Rongrat</title>
 <style>
     tr:nth-child(even) {
         background-color: #f2f2f2
@@ -25,8 +25,8 @@
     <tr>
     <td valign="top"><img src="<?php echo $_SERVER["DOCUMENT_ROOT"].'/assets/img/logo.png';?>" width="110" style="margin-top:20px"/></td>
         <td align="right">
-            <h3>Inversiones Rongrat C.A.</h3>
-            <p> RIF: J-1111111-1<br>Teléfono: xxxx-xxxxxxx<br>Zaraza, estado Guárico         
+            <h3>Alimentos Rongrat C.A.</h3>
+            <p> RIF: J-40892210-0<br>Teléfono: xxxx-xxxxxxx<br>Zaraza, estado Guárico         
         </td>
         
     </tr>
