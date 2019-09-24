@@ -248,4 +248,78 @@ class Reportes extends CI_Controller {
 		}			
         
     }    
+
+
+    public function empaquetado()
+	{
+        if($this->session->userdata('usuario_logged_in')){
+
+            
+            $this->load->model('empaquetado_model');    
+            
+            
+            $data2['titulo']="Reporte de empaquetado";
+            $data2['pagina']="reporte_empaquetado";
+                
+            $desde=$this->input->post('desde');
+            $hasta=$this->input->post('hasta');
+            $data=array();
+
+
+            if($desde && $hasta){
+
+                
+                $empaquetado=$this->empaquetado_model->getReporteEmpaquetado($desde,$hasta);                
+                
+                $data['totales']=$empaquetado;  
+                $data['desde']=$desde;
+                $data['hasta']=$hasta; 
+            }
+            
+            $this->load->view('header',$data2);
+            $this->load->view('reportes/empaquetado',$data);
+            $this->load->view('footer');
+        }
+
+        else{
+			$this->session->set_flashdata('type','danger');
+			$this->session->set_flashdata('msg','Inicia sesión para continuar');
+			redirect('login/');
+		}			
+        
+    }
+
+
+    public function pdf_empaquetado(){
+        if($this->session->userdata('usuario_logged_in')){
+
+            date_default_timezone_set('America/Caracas');        
+            
+            $this->load->model('empaquetado_model');
+            
+            $desde=$this->input->get('desde');
+            $hasta=$this->input->get('hasta');
+            
+            if($desde && $hasta){
+                                        
+                $empaquetado=$this->empaquetado_model->getReporteEmpaquetado($desde,$hasta);                                
+                $data['totales']=$empaquetado;  
+                $data['desde']=$desde;
+                $data['hasta']=$hasta; 
+    
+                $this->load->view('reportes/pdf_empaquetado',$data);
+                /*$html = $this->load->view('reportes/pdf_productos_general',$data,TRUE);
+                $this->load->library('pdfgenerator');
+                $filename = 'reporte_general_productos';
+                $this->pdfgenerator->generate($html, $filename, true, 'Letter', 'portrait');*/
+            }
+        }
+
+        else{
+			$this->session->set_flashdata('type','danger');
+			$this->session->set_flashdata('msg','Inicia sesión para continuar');
+			redirect('login/');
+		}			
+        
+    }    
 }

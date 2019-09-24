@@ -21,7 +21,7 @@
         
         public function getUltimasOperaciones(){            
             $this->db->order_by('fecha','desc');
-            $this->db->limit('10');
+            $this->db->limit('50');
             $query=$this->db->get('entrada_salida_productos');
             return $query->result();
         }

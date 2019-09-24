@@ -116,6 +116,33 @@
               </ul>
             </div>
           </li>
+
+          <li <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") || ($pagina=="nuevo_producto") || ($pagina=="operaciones_productos")) echo 'class="active"';?>>
+            <a data-toggle="collapse" href="#pagesExamples2">
+            <i class="material-icons">move_to_inbox</i>
+              <p>
+                Empaquetado
+                <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") || ($pagina=="operacion_producto") || ($pagina=="operaciones_productos"))  echo "show";?> " id="pagesExamples2">
+              <ul class="nav">
+                
+                <li <?php if($pagina=="nuevo_empaquetado") echo 'class="active"';?>>
+                  <a href="<?=base_url('empaquetado/nuevo');?>">
+                  <i class="material-icons">add_box</i>
+                    <span class="sidebar-normal"> Registrar empaquetado</span>
+                  </a>
+                </li>
+                <li <?php if($pagina=="empaquetado") echo 'class="active"';?>>
+                  <a href="<?=base_url('empaquetado/');?>">
+                  <i class="material-icons">list_alt</i>
+                    <span class="sidebar-normal"> Listado</span>
+                  </a>
+                </li>                
+              </ul>
+            </div>
+          </li>
           
           <li <?php if(($pagina=="reporte_individual") || ($pagina=="reporte_general")) echo 'class="active"';?>>
             <a data-toggle="collapse" href="#formsExamples">
@@ -137,6 +164,12 @@
                   <a href="<?=base_url('reportes/productos/general');?>">
                   <i class="material-icons">view_list</i>
                     <span class="sidebar-normal"> Reporte general </span>
+                  </a>
+                </li> 
+                <li <?php if($pagina=="reporte_empaquetado") echo 'class="active"';?>>
+                  <a href="<?=base_url('reportes/empaquetado');?>">
+                  <i class="material-icons">move_to_inbox</i>
+                    <span class="sidebar-normal"> Reporte de empaquetado </span>
                   </a>
                 </li> 
                 <li>

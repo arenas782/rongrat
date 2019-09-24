@@ -47,7 +47,9 @@
         $("#hastainput").on("dp.change", function (e) {
             $('#desdeinput').data("DateTimePicker").maxDate(e.date);
         });
-          
+        $('.datetimepicker2').datetimepicker({
+            format: 'DD-MM-YYYY'  });
+
           $('.datetimepicker').datetimepicker({
             format: 'DD-MM-YYYY HH:mm:ss',  
             
