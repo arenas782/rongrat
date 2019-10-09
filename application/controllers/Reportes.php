@@ -270,8 +270,35 @@ class Reportes extends CI_Controller {
 
                 
                 $empaquetado=$this->empaquetado_model->getReporteEmpaquetado($desde,$hasta);                
-                
+                $totales=array();
+                $pernil=0.0;
+                $p_pernil=0.0;
+                $paleta=0.0;
+                $p_paleta=0.0;
+                $peine=0.0;
+                $p_peine=0.0;
+                $costilla=0.0;
+                $p_costilla=0.0;
+                $nro_cerdos=0.0;
+                $nro_piezas=0.0;
+                foreach($empaquetado as $e){
+                    $pernil+=$e->pernil;
+                    $p_pernil+=$e->p_pernil;
+                    $paleta+=$e->paleta;
+                    $p_paleta+=$e->p_paleta;
+                    $peine+=$e->peine;
+                    $p_peine+=$e->p_peine;
+                    $costilla+=$e->costilla;
+                    $p_costilla+=$e->p_costilla;
+                    $nro_cerdos+=$e->nro_cerdos;
+                    $nro_piezas+=$e->nro_piezas;
+                    
+                }
+                $totales=array('pernil'=>$pernil,'p_pernil'=>$p_pernil,'paleta'=>$paleta,'p_paleta'=>$p_paleta,
+                'peine'=>$peine,'p_peine'=>$p_peine,'costilla'=>$costilla,'p_costilla'=>$p_costilla,
+                'nro_piezas'=>$nro_piezas,'nro_cerdos'=>$nro_cerdos);
                 $data['totales']=$empaquetado;  
+                $data['resumen']= json_decode(json_encode($totales), true);
                 $data['desde']=$desde;
                 $data['hasta']=$hasta; 
             }
@@ -301,17 +328,45 @@ class Reportes extends CI_Controller {
             $hasta=$this->input->get('hasta');
             
             if($desde && $hasta){
-                                        
+                                    
+                $totales=array();
+                $pernil=0.0;
+                $p_pernil=0.0;
+                $paleta=0.0;
+                $p_paleta=0.0;
+                $peine=0.0;
+                $p_peine=0.0;
+                $costilla=0.0;
+                $p_costilla=0.0;
+                $nro_cerdos=0.0;
+                $nro_piezas=0.0;
                 $empaquetado=$this->empaquetado_model->getReporteEmpaquetado($desde,$hasta);                                
+                foreach($empaquetado as $e){
+                    $pernil+=$e->pernil;
+                    $p_pernil+=$e->p_pernil;
+                    $paleta+=$e->paleta;
+                    $p_paleta+=$e->p_paleta;
+                    $peine+=$e->peine;
+                    $p_peine+=$e->p_peine;
+                    $costilla+=$e->costilla;
+                    $p_costilla+=$e->p_costilla;
+                    $nro_cerdos+=$e->nro_cerdos;
+                    $nro_piezas+=$e->nro_piezas;
+                    
+                }
+                $totales=array('pernil'=>$pernil,'p_pernil'=>$p_pernil,'paleta'=>$paleta,'p_paleta'=>$p_paleta,
+                'peine'=>$peine,'p_peine'=>$p_peine,'costilla'=>$costilla,'p_costilla'=>$p_costilla,
+                'nro_piezas'=>$nro_piezas,'nro_cerdos'=>$nro_cerdos);
+                $data['resumen']= json_decode(json_encode($totales), true);
                 $data['totales']=$empaquetado;  
                 $data['desde']=$desde;
                 $data['hasta']=$hasta; 
     
-                $this->load->view('reportes/pdf_empaquetado',$data);
-                /*$html = $this->load->view('reportes/pdf_productos_general',$data,TRUE);
+                //$this->load->view('reportes/pdf_empaquetado',$data);
+                $html = $this->load->view('reportes/pdf_empaquetado',$data,TRUE);
                 $this->load->library('pdfgenerator');
-                $filename = 'reporte_general_productos';
-                $this->pdfgenerator->generate($html, $filename, true, 'Letter', 'portrait');*/
+                $filename = 'reporte_empaquetado';
+                $this->pdfgenerator->generate($html, $filename, true, 'Letter', 'portrait');
             }
         }
 

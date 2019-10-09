@@ -33,9 +33,7 @@
   
   <div class="wrapper ">
     <div class="sidebar" data-color="brown" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
+     
       <div class="logo">
         <a href="<?=base_url();?>" class="simple-text logo-mini">
           
@@ -137,7 +135,7 @@
                 <li <?php if($pagina=="empaquetado") echo 'class="active"';?>>
                   <a href="<?=base_url('empaquetado/');?>">
                   <i class="material-icons">list_alt</i>
-                    <span class="sidebar-normal"> Listado</span>
+                    <span class="sidebar-normal"> Histórico</span>
                   </a>
                 </li>                
               </ul>
@@ -152,7 +150,7 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse <?php if(($pagina=="reporte_individual")||($pagina=="reporte_general")) echo 'show';?> " id="formsExamples">
+            <div class="collapse <?php if(($pagina=="reporte_individual")||($pagina=="reporte_general") ||($pagina=="reporte_empaquetado")) echo 'show';?> " id="formsExamples">
               <ul class="nav">
                 <li <?php if($pagina=="reporte_individual") echo 'class="active"';?>>
                   <a href="<?=base_url('reportes/productos/individual');?>">

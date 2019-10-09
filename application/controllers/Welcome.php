@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
 			$this->load->library('encryption');
 			$this->load->model('operacion_producto');
 			$this->load->model('producto');
-			$data2['titulo']="Inversiones Rongrat";
+			$data2['titulo']="Alimentos Rongrat";
 			$data2['pagina']="inicio";
 			$data['ultimas_operaciones']=$this->operacion_producto->getUltimasOperaciones();
 			$this->load->view('header',$data2);

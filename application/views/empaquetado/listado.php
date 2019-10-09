@@ -11,16 +11,16 @@
                   <table class="table table-striped" id="datatable">
                     <thead class="">
                       <th>
-                        Pernil
+                        Pernil (kg)/Pzas
                       </th>
                       <th>
-                        Paleta
+                        Paleta (kg)/Pzas
                       </th>
                       <th>
-                        Peine
+                        Peine (kg)/Pzas
                       </th>
                       <th>
-                        Costilla
+                        Costilla (kg)/Pzas
                       </th>
                       <th>
                         Nº piezas
@@ -36,16 +36,16 @@
                       <?php foreach ($ultimos_empaquetados as $u):?>
                       <tr>
                         <td>
-                            <?=number_format($u->pernil,2,',','.')?>
+                            <?=number_format($u->pernil,2,',','.')?> / <?=number_format($u->p_pernil,2,',','.')?>
                         </td>
                         <td>
-                            <?=number_format($u->paleta,2,',','.')?>
+                            <?=number_format($u->paleta,2,',','.')?> / <?=number_format($u->p_paleta,2,',','.')?>
                         </td>
                         <td>
-                            <?=number_format($u->peine,2,',','.')?>                        
+                            <?=number_format($u->peine,2,',','.')?> / <?=number_format($u->p_peine,2,',','.')?> 
                         </td>
                         <td>                          
-                            <?=number_format($u->costilla,2,',','.')?>
+                            <?=number_format($u->costilla,2,',','.')?> / <?=number_format($u->p_costilla,2,',','.')?>
                         </td>
                         <td>                          
                             <?=number_format($u->nro_piezas,2,',','.')?>

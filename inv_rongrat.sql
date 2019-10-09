@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2019 a las 23:29:48
+-- Tiempo de generación: 09-10-2019 a las 17:47:40
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `inv_rongrat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empaquetado`
+--
+
+CREATE TABLE `empaquetado` (
+  `id` int(11) NOT NULL,
+  `pernil` double NOT NULL DEFAULT '0',
+  `p_pernil` double DEFAULT NULL,
+  `paleta` double NOT NULL DEFAULT '0',
+  `p_paleta` double DEFAULT NULL,
+  `peine` double NOT NULL DEFAULT '0',
+  `p_peine` double DEFAULT NULL,
+  `costilla` double NOT NULL DEFAULT '0',
+  `p_costilla` double DEFAULT NULL,
+  `nro_piezas` double NOT NULL DEFAULT '0',
+  `nro_cerdos` double NOT NULL DEFAULT '0',
+  `fecha` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `empaquetado`
+--
+
+INSERT INTO `empaquetado` (`id`, `pernil`, `p_pernil`, `paleta`, `p_paleta`, `peine`, `p_peine`, `costilla`, `p_costilla`, `nro_piezas`, `nro_cerdos`, `fecha`, `created_at`) VALUES
+(2, 100, NULL, 100, NULL, 0.5, NULL, 0.5, NULL, 100.5, 90.05, '2019-09-23', '2019-09-24 00:15:57'),
+(3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, '2019-10-08', '2019-10-08 23:25:52'),
+(4, 113, 8, 124, 9, 42, 8, 22, 9, 55, 12, '2019-10-09', '2019-10-09 15:38:12');
 
 -- --------------------------------------------------------
 
@@ -70,7 +101,11 @@ INSERT INTO `entrada_salida_productos` (`id`, `nro_documento`, `id_producto`, `t
 (2, 'fac-1212', 2, 's', 2, 67000, 134000, 1.5, NULL, '2019-09-16 15:26:31', '2019-09-16 19:26:34'),
 (3, '', 4, 'e', 12, 19800, 237600, 300, NULL, '2019-09-16 17:04:04', '2019-09-16 21:04:06'),
 (10, '', 5, 's', 10, 30000, 300000, 19990, 39700000, '2019-09-16 19:04:27', '2019-09-16 23:04:28'),
-(11, '', 6, 's', 500, 70000, 35000000, 9500, 165000000, '2019-09-21 16:38:40', '2019-09-21 20:38:42');
+(11, '', 6, 's', 500, 70000, 35000000, 9500, 165000000, '2019-09-21 16:38:40', '2019-09-21 20:38:42'),
+(12, '', 6, 'e', 20, 40000, 800000, 9520, 165800000, '2019-09-22 21:51:33', '2019-09-23 01:51:34'),
+(13, '', 6, 's', 500, 70000, 35000000, 9020, 130800000, '2019-09-22 21:52:18', '2019-09-23 01:52:19'),
+(14, '', 4, 's', 20, 24500, 490000, 290, 12010000, '2019-09-22 22:04:19', '2019-09-23 02:04:20'),
+(15, '', 4, 's', 15, 24500, 367500, 275, 11642500, '2019-09-22 22:05:23', '2019-09-23 02:05:24');
 
 -- --------------------------------------------------------
 
@@ -110,10 +145,10 @@ CREATE TABLE `inv_productos` (
 --
 
 INSERT INTO `inv_productos` (`id`, `codigo`, `nombre`, `costo`, `precio`, `stock`, `valor`, `created_at`) VALUES
-(2, '2', 'Mortadela', 48000, 67000, 1.5, NULL, '2019-09-15 20:32:10'),
-(4, '01212', 'Jamonada', 19800, 24500, 300, NULL, '2019-09-16 05:54:40'),
+(2, '2', 'Mortadela', 100000, 67000, 1.5, 10500, '2019-09-15 20:32:10'),
+(4, '01212', 'Jamonada 900gr', 19800, 24500, 275, 11642500, '2019-09-16 05:54:40'),
 (5, '4312', 'Tocineta', 18000, 30000, 19990, 39700000, '2019-09-16 19:43:56'),
-(6, '12042', 'Huevos', 40000, 70000, 9500, 165000000, '2019-09-21 20:37:59');
+(6, '12042', 'Huevos', 40000, 70000, 9020, 130800000, '2019-09-21 20:37:59');
 
 -- --------------------------------------------------------
 
@@ -136,11 +171,17 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `email`, `telefono`, `password`, `created_at`) VALUES
-(1, 'Javier Rondón', 'rongrat', 'j.rondon@gmail.com', '0424-4985263', '1b8177573c639e171a3c39941584e3439144d43893bbb92923c28fc8c2b950dcac236e6f237b1e22626cbd2b8b41b9ad605d6e0b90f48adebb5db63dab463917y2sH4N2Mpm0N/dRzgCXTo0Hlbt0xO4lp6hZJ5SRgVfo=', '2019-09-21 20:16:17');
+(1, 'Javier Rondón', 'rongrat', 'j.rondon@gmail.com', '0424-4985263', '4b7d092c2b69755737febdc0d2739a892c28541ce65e5f0bfc1e4bb5c506ef0b76bc23db0cef26cf3edeac844a0b022ad71b6a24cd0a4c33a877f8921c7635e4kKaejkWILr3V4yynzpjPpwae6C8ssF9ZO9jfFJNGYac=', '2019-09-21 20:16:17');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `empaquetado`
+--
+ALTER TABLE `empaquetado`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `entrada_salida_insumos`
@@ -177,6 +218,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `empaquetado`
+--
+ALTER TABLE `empaquetado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `entrada_salida_insumos`
 --
 ALTER TABLE `entrada_salida_insumos`
@@ -186,7 +233,7 @@ ALTER TABLE `entrada_salida_insumos`
 -- AUTO_INCREMENT de la tabla `entrada_salida_productos`
 --
 ALTER TABLE `entrada_salida_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `inv_insumos`

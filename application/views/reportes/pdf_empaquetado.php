@@ -87,8 +87,44 @@
         <?php endforeach;?>
     </tbody>    
   </table>
-
-  <br><hr>
+  <br>
+  <hr><br><br>
+  <h3 style="text-align:center">Resumen totalizado de operaciones</h3><hr>
+  
+  <table width="100%" class="table table-striped">
+    <thead style="background-color: lightgray;">
+      <tr>                
+        <th>Pernil (Kg)/Pzas</th>
+        <th>Paleta (Kg)/Pzas</th>
+        <th>Peine (Kg)/Pzas</th>
+        <th>Costilla (Kg)/Pzas</th>
+        <th>Nº piezas</th>
+        <th>Nº cerdos</th>
+      </tr>
+    </thead>
+    <tbody>        
+        <tr>
+            <td>
+                <?=number_format($resumen['pernil'],2,',','.')?> / <?=number_format($resumen['p_pernil'],2,',','.')?>
+            </td>
+            <td>
+                <?=number_format($resumen['paleta'],2,',','.')?> / <?=number_format($resumen['p_paleta'],2,',','.')?>   
+            </td>
+            <td>
+                <?=number_format($resumen['peine'],2,',','.')?> / <?=number_format($resumen['p_peine'],2,',','.')?>
+            </td>
+            <td>                          
+                <?=number_format($resumen['costilla'],2,',','.')?> / <?=number_format($resumen['p_costilla'],2,',','.')?>
+            </td>
+            <td>                          
+                <?=number_format($resumen['nro_piezas'],2,',','.')?>
+            </td>
+            <td>
+                <?=number_format($resumen['nro_cerdos'],2,',','.')?>
+            </td>                                                    
+        </tr>
+    </tbody>    
+  </table>
   
 </body>
 </html> 

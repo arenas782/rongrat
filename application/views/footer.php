@@ -21,14 +21,14 @@
   <script src="<?=base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js');?>"></script>
   <script src="<?=base_url('assets/js/plugins/moment.min.js');?>"></script>
   <script src="<?=base_url('assets/js/plugins/bootstrap-datetimepicker.js');?>"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
   <script src="<?=base_url('assets/js/paper-dashboard.min790f.js?v=2.0.1');?>" type="text/javascript"></script>    
   <script src="<?=base_url('assets/demo/demo.js');?>" type="text/javascript"></script>    
 
-  <script src="https://code.highcharts.com/highcharts.js"></script>
+  
 
 
     <script>
