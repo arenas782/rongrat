@@ -50,12 +50,12 @@
   <table width="100%" class="table table-striped">
     <thead style="background-color: lightgray;">
       <tr>        
-        <th>Pernil</th>
-        <th>Paleta</th>
-        <th>Peine</th>
-        <th>Costilla</th>
+        <th>Pernil (Kg)/Pzas</th>
+        <th>Paleta (Kg)/Pzas</th>
+        <th>Peine (Kg)/Pzas</th>
+        <th>Costilla (Kg)/Pzas</th>
         <th>Nº piezas</th>
-        <th>Nº cerdos</th>        
+        <th>Nº cerdos</th>
         <th>Fecha</th>        
       </tr>
     </thead>
@@ -63,16 +63,16 @@
         <?php foreach ($totales as $t):?>
             <tr>
                 <td>
-                    <?=number_format($t->pernil,2,',','.')?>
+                    <?=number_format($t->pernil,2,',','.')?> / <?=number_format($t->p_pernil,2,',','.')?>
                 </td>
                 <td>
-                    <?=number_format($t->paleta,2,',','.')?>
+                    <?=number_format($t->paleta,2,',','.')?> / <?=number_format($t->p_paleta,2,',','.')?>
                 </td>                                                                                                
                 <td>                          
-                    <?=number_format($t->peine,2,',','.')?>
+                    <?=number_format($t->peine,2,',','.')?> / <?=number_format($t->p_peine,2,',','.')?>
                 </td>
                 <td>                          
-                    <?=number_format($t->costilla,2,',','.')?>
+                    <?=number_format($t->costilla,2,',','.')?> / <?=number_format($t->p_costilla,2,',','.')?>
                 </td>                                                
                 <td>                          
                     <?=number_format($t->nro_piezas,2,',','.')?>

@@ -115,7 +115,7 @@
             </div>
           </li>
 
-          <li <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") || ($pagina=="nuevo_producto") || ($pagina=="operaciones_productos")) echo 'class="active"';?>>
+          <li <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") ) echo 'class="active"';?>>
             <a data-toggle="collapse" href="#pagesExamples2">
             <i class="material-icons">move_to_inbox</i>
               <p>
@@ -123,7 +123,7 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") || ($pagina=="operacion_producto") || ($pagina=="operaciones_productos"))  echo "show";?> " id="pagesExamples2">
+            <div class="collapse <?php if(($pagina=="empaquetado") || ($pagina=="nuevo_empaquetado") )  echo "show";?> " id="pagesExamples2">
               <ul class="nav">
                 
                 <li <?php if($pagina=="nuevo_empaquetado") echo 'class="active"';?>>
